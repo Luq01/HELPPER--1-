@@ -102,24 +102,28 @@
     min-width: 300px;
     max-width: 450px;
     text-align: center;
+    overflow: hidden;
 }
 
 .card-description{
     color: #666;
     font-size: 0.95rem;
-    margin: 10px;;
+    margin: 10px;
 }
 
 .card-image{
     width: 100%;
     max-width: 350px;
     margin-top: 10px;
+    margin-bottom: 0;
+    align-self: flex-end;
 }
 
 .card-image img{
     width: 100%;
     height: auto;
     object-fit: contain;
+    display: block;
 }
 
 /* Footer Styles */

@@ -3,6 +3,7 @@ header{
     padding: 8px 8%;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 #navbar{
@@ -44,6 +45,14 @@ header{
 
 #mobile_menu{
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
 }
 
 @media screen and (max-width: 1170px) {
@@ -52,25 +61,29 @@ header{
         display: none;
     }
     
-    
     #mobile_barras{
         display: block;
         border: none;
         background-color: transparent;
         font-size: 1.5rem;
         cursor: pointer;
+        transition: all 0.3s ease;
     }
 
     #mobile_menu.active {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
+    
     #mobile_nav_list{
         display: flex;
         flex-direction: column;
-        gap: 15px;
-        margin: 12px 0px;
+        gap: 20px;
+        margin: 20px 0;
+        padding: 0;
+        align-items: center;
     }
 
     #mobile_nav_list .nav_item {
@@ -78,18 +91,26 @@ header{
         text-align: center;
     }
 
+    #mobile_nav_list .nav_item a {
+        font-size: 1.1rem;
+        color: #1d1d1d;
+        font-weight: 600;
+    }
+
     #mobile_menu .auth-buttons {
         display: flex;
         flex-direction: column;
         width: 100%;
+        max-width: 250px;
         align-items: center;
-        gap: 12px;
-        margin-top: 12px;
+        gap: 15px;
+        margin-top: 20px;
     }
 
     #mobile_menu .auth-buttons .btn-cadastro,
     #mobile_menu .auth-buttons .btn-login {
-        width: 60%;
+        width: 100%;
+        padding: 12px 20px;
     }
     
 }
