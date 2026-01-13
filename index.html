@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">]
+    <link rel="stylesheet" href="src/styles/home.css">
+    <link rel="stylesheet" href="src/styles/style.css">
+    <link rel="stylesheet" href="src/styles/buttons.css">
+    <link rel="stylesheet" href="src/styles/header.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Helpper</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <img src="src/images/helpper logo teste.png" alt="Helpper Logo" id="nav_logo">
+            <ul id="nav_list">
+                <li class="nav_item active">
+                    <a href="#home">Inicio</a>
+                </li>
+                 <li class="nav_item">
+                    <a href="#como_funciona">Como funciona</a>
+                </li>
+                 <li class="nav_item">
+                    <a href="#quem_somos">Quem somos</a>
+                </li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login">
+                    Entrar
+                </button>
+                <button class="btn-cadastro">
+                    Cadastrar-se
+                </button>
+            </div>
+            <button id="mobile_barras">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                    <li class="nav_item">
+                        <a href="#home">Inicio</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#como_funciona">Como funciona</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#quem_somos">Quem somos</a>
+                    </li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login">
+                    Entrar
+                </button>
+                <button class="btn-cadastro">
+                    Cadastrar-se
+                </button>
+            </div>
+                         
+        </div>
+    </header>
+    <main id="content">
+        <section id="home">
+            <div id="banner">
+                <div id="cta">
+                    <h1>
+                        Encontre profissionais 
+                        na sua cidade 
+                    </h1>
+                    <p class="description">
+                        Conectamos você aos melhores profissionais 
+                        locais com <strong>segurança e agilidade</strong>
+                    </p>
+
+                    <div id="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="De qual serviço você precisa?">
+                    </div>
+                </div>
+            </div>
+
+            <div id="buttons-container">
+                <div class="service-card">
+                    <div id="button_cliente">
+                        <a href="#">Procure um Profissional</a>
+                    </div>
+                    <p class="card-description">Encontre pedreiros, eletricistas e mais.</p>
+                    <div class="card-image">
+                        <img src="src/images/cliente.png" alt="Profissional atendendo cliente">
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div id="button_profissional">
+                        <a href="#">Quero anunciar serviços</a>
+                    </div>
+                    <p class="card-description">Encontre clientes para o seu negócio.</p>
+                    <div class="card-image">
+                        <img src="src/images/profissionais.png" alt="Equipe de profissionais">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="src/javascript/script.js"></script>
+</body>
+</html>
