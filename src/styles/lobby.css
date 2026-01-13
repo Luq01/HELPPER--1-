@@ -1,0 +1,342 @@
+/* Lobby Page Styles */
+
+#lobby {
+    min-height: calc(100vh - 86.5px);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Service Selection Banner */
+#service-banner {
+    background-color: #0033cc;
+    width: 100%;
+    padding: 60px 8% 80px 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+#service-banner h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+}
+
+#service-icons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 900px;
+}
+
+.service-icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.service-icon-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon-wrapper img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.service-icon-card span {
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Professionals Section */
+#professionals-section {
+    padding: 60px 8% 40px 8%;
+    flex: 1;
+}
+
+#section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#section-header h2 img {
+    width: 35px;
+    height: 35px;
+}
+
+#location-filter {
+    background-color: #0066ff;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+#location-filter:hover {
+    background-color: #0052cc;
+    transform: translateY(-2px);
+}
+
+/* Professional Cards Grid */
+#professionals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.professional-card {
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.professional-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #e0e0e0;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+}
+
+.profile-info .profession {
+    font-size: 0.9rem;
+    color: #0066ff;
+    font-weight: 600;
+    margin: 2px 0 0 0;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+.stars i {
+    color: #ffc107;
+    font-size: 0.9rem;
+}
+
+.stars i.half {
+    position: relative;
+}
+
+.rating-count {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.card-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.card-detail img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.verified {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0066ff;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.verified img {
+    width: 20px;
+    height: 20px;
+}
+
+.hire-button {
+    background-color: #0066ff;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+    margin-top: 5px;
+}
+
+.hire-button:hover {
+    background-color: #0052cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
+}
+
+/* View More Button */
+#view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#view-more-button {
+    background-color: transparent;
+    color: #0066ff;
+    padding: 14px 40px;
+    border-radius: 50px;
+    border: 2px solid #0066ff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#view-more-button:hover {
+    background-color: #e6f0ff;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #service-banner {
+        padding: 40px 5% 60px 5%;
+    }
+
+    #service-banner h1 {
+        font-size: 1.8rem;
+    }
+
+    #service-icons {
+        gap: 20px;
+    }
+
+    .service-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+
+    .service-icon-wrapper img {
+        width: 40px;
+        height: 40px;
+    }
+
+    #professionals-section {
+        padding: 40px 5% 30px 5%;
+    }
+
+    #section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #section-header h2 {
+        font-size: 1.4rem;
+    }
+
+    #professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #location-filter {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #service-banner h1 {
+        font-size: 1.5rem;
+    }
+
+    .service-icon-card span {
+        font-size: 0.85rem;
+    }
+
+    .professional-card {
+        padding: 20px;
+    }
+}
