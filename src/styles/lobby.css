@@ -279,10 +279,11 @@
     transform: translateY(-2px);
 }
 
-/* Responsive Design */
+/* Responsive Design - Tablet */
 @media screen and (max-width: 768px) {
     #service-banner {
         padding: 40px 5% 60px 5%;
+        gap: 35px;
     }
 
     #service-banner h1 {
@@ -291,6 +292,7 @@
 
     #service-icons {
         gap: 20px;
+        max-width: 100%;
     }
 
     .service-icon-wrapper {
@@ -303,6 +305,10 @@
         height: 40px;
     }
 
+    .service-icon-card span {
+        font-size: 0.9rem;
+    }
+
     #professionals-section {
         padding: 40px 5% 30px 5%;
     }
@@ -310,10 +316,16 @@
     #section-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 15px;
     }
 
     #section-header h2 {
         font-size: 1.4rem;
+    }
+
+    #section-header h2 img {
+        width: 30px;
+        height: 30px;
     }
 
     #professionals-grid {
@@ -324,19 +336,239 @@
     #location-filter {
         width: 100%;
         text-align: center;
+        padding: 12px 25px;
+    }
+
+    .professional-card {
+        padding: 25px;
+    }
+
+    #view-more-button {
+        padding: 12px 35px;
+        font-size: 0.95rem;
     }
 }
 
+/* Small Phones */
 @media screen and (max-width: 480px) {
+    #service-banner {
+        padding: 35px 4% 50px 4%;
+        gap: 30px;
+    }
+
     #service-banner h1 {
         font-size: 1.5rem;
+    }
+
+    #service-icons {
+        gap: 15px;
+    }
+
+    .service-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .service-icon-wrapper img {
+        width: 35px;
+        height: 35px;
     }
 
     .service-icon-card span {
         font-size: 0.85rem;
     }
 
+    #professionals-section {
+        padding: 35px 4% 25px 4%;
+    }
+
+    #section-header {
+        gap: 12px;
+    }
+
+    #section-header h2 {
+        font-size: 1.2rem;
+        gap: 10px;
+    }
+
+    #section-header h2 img {
+        width: 25px;
+        height: 25px;
+    }
+
+    #professionals-grid {
+        gap: 18px;
+    }
+
+    #location-filter {
+        padding: 11px 22px;
+        font-size: 0.95rem;
+    }
+
     .professional-card {
         padding: 20px;
+        gap: 12px;
+        border-radius: 16px;
+    }
+
+    .profile-photo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .profile-info h3 {
+        font-size: 1rem;
+    }
+
+    .profile-info .profession {
+        font-size: 0.85rem;
+    }
+
+    .rating-count {
+        font-size: 0.8rem;
+    }
+
+    .card-detail {
+        font-size: 0.85rem;
+    }
+
+    .card-detail img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .verified {
+        font-size: 0.85rem;
+    }
+
+    .verified img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .hire-button {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+    }
+
+    #view-more-button {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Very Small Phones */
+@media screen and (max-width: 320px) {
+    #service-banner {
+        padding: 30px 3% 45px 3%;
+        gap: 25px;
+    }
+
+    #service-banner h1 {
+        font-size: 1.3rem;
+    }
+
+    #service-icons {
+        gap: 12px;
+    }
+
+    .service-icon-wrapper {
+        width: 55px;
+        height: 55px;
+    }
+
+    .service-icon-wrapper img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .service-icon-card span {
+        font-size: 0.8rem;
+    }
+
+    #professionals-section {
+        padding: 30px 3% 20px 3%;
+    }
+
+    #section-header {
+        gap: 10px;
+    }
+
+    #section-header h2 {
+        font-size: 1.1rem;
+        gap: 8px;
+    }
+
+    #section-header h2 img {
+        width: 22px;
+        height: 22px;
+    }
+
+    #professionals-grid {
+        gap: 15px;
+    }
+
+    #location-filter {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        border-radius: 40px;
+    }
+
+    .professional-card {
+        padding: 18px;
+        gap: 10px;
+    }
+
+    .profile-photo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .profile-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .profile-info .profession {
+        font-size: 0.8rem;
+    }
+
+    .stars i {
+        font-size: 0.85rem;
+    }
+
+    .rating-count {
+        font-size: 0.75rem;
+    }
+
+    .card-detail {
+        font-size: 0.8rem;
+        gap: 8px;
+    }
+
+    .card-detail img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .verified {
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .verified img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .hire-button {
+        padding: 11px 16px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+
+    #view-more-button {
+        padding: 11px 25px;
+        font-size: 0.85rem;
+        border-radius: 40px;
     }
 }
