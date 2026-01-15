@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../src/styles/home.css">
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="../src/styles/buttons.css">
+    <link rel="stylesheet" href="../src/styles/header.css">
+    <link rel="stylesheet" href="../src/styles/cadastro.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cadastro - Helpper</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <img href="../index.html" src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+            <ul id="nav_list">
+                <li class="nav_item">
+                    <a href="../index.html" target="_blank">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html" target="_blank">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html" target="_blank">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html" target="_blank">Lobby</a>
+                </li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login">
+                    Entrar
+                </button>
+                <button class="btn-cadastro" onclick="window.location.href='cadastro.html'">
+                    Cadastrar-se
+                </button>
+            </div>
+            <button id="mobile_barras">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav_item">
+                    <a href="../index.html" target="_blank">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html" target="_blank">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html" target="_blank">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html" target="_blank">Lobby</a>
+                </li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login">
+                    Entrar
+                </button>
+                <button class="btn-cadastro" onclick="window.location.href='cadastro.html'">
+                    Cadastrar-se
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="cadastro-page">
+        <div class="cadastro-container">
+            <div class="cadastro-card">
+                <div class="logo-container">
+                    <img src="../src/images/hellper logo.png" alt="Helpper Logo" class="cadastro-logo">
+                </div>
+                
+                <h1 class="cadastro-title">Crie sua conta</h1>
+                
+                <form class="cadastro-form" id="cadastroForm">
+                    <div class="input-group">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                        <input type="email" id="email" name="email" placeholder="Digite seu email..." required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
+                        <i class="fa-regular fa-eye toggle-password" data-target="senha"></i>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme sua senha" required>
+                        <i class="fa-regular fa-eye toggle-password" data-target="confirmar-senha"></i>
+                    </div>
+                    
+                    <div class="terms-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            Li e estou ciente com os novos 
+                            <a href="#" class="terms-link">Termos de uso e Política de Privacidade</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-cadastrar">Cadastrar</button>
+                    
+                    <div class="divider">
+                        <span>ou</span>
+                    </div>
+                    
+                    <button type="button" class="btn-social btn-google">
+                        <img src="https://www.google.com/favicon.ico" alt="Google" class="social-icon">
+                        Entrar com Google
+                    </button>
+                    
+                    <button type="button" class="btn-social btn-facebook">
+                        <i class="fa-brands fa-facebook social-icon"></i>
+                        Entrar com Facebook
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Helpper  |  Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
+    </footer>
+    
+    <script src="../src/javascript/script.js"></script>
+    <script src="../src/javascript/cadastro.js"></script>
+</body>
+</html>
