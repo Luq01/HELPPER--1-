@@ -15,7 +15,9 @@
 <body>
     <header>
         <nav id="navbar">
-            <img href="index.html" src="src/images/hellper logo.png"  alt="Helpper Logo" id="nav_logo">
+            <a href="index.html">
+                <img src="src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+            </a>
             <ul id="nav_list">
                 <li class="nav_item active">
                     <a href="index.html" target="_blank">Inicio</a>
@@ -31,7 +33,7 @@
                 </li>
             </ul>
             <div class="auth-buttons">
-                <button class="btn-login">
+                <button class="btn-login" onclick="window.location.href='pages/login.html'">
                     Entrar
                 </button>
                 <button class="btn-cadastro" onclick="window.location.href='pages/cadastro.html'">
@@ -58,7 +60,7 @@
                     </li>
             </ul>
             <div class="auth-buttons">
-                <button class="btn-login">
+                <button class="btn-login" onclick="window.location.href='pages/login.html'">
                     Entrar
                 </button>
                 <button class="btn-cadastro" onclick="window.location.href='pages/cadastro.html'">
@@ -91,7 +93,7 @@
             <div id="buttons-container">
                 <div class="service-card">
                     <div id="button_cliente">
-                        <a href="#">Procure um Profissional</a>
+                        <a href="pages/lobby.html">Procure um Profissional</a>
                     </div>
                     <p class="card-description">Encontre pedreiros, eletricistas e mais.</p>
                     <div class="card-image">
@@ -101,7 +103,7 @@
 
                 <div class="service-card">
                     <div id="button_profissional">
-                        <a href="#">Quero anunciar serviços</a>
+                        <a href="pages/cadastro.html">Quero anunciar serviços</a>
                     </div>
                     <p class="card-description">Encontre clientes para o seu negócio.</p>
                     <div class="card-image">
@@ -113,7 +115,7 @@
     </main>
     
     <footer>
-        <p>&copy; 2026 Helpper. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Helpper  |  Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
     </footer>
     
     <script src="src/javascript/script.js"></script>

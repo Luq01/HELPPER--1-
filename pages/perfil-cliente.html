@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../src/styles/home.css">
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="../src/styles/buttons.css">
+    <link rel="stylesheet" href="../src/styles/header.css">
+    <link rel="stylesheet" href="../src/styles/perfil-cliente.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Perfil Cliente - Helpper</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="../index.html">
+                <img src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+            </a>
+            <ul id="nav_list">
+                <li class="nav_item">
+                    <a href="../index.html" target="_blank">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html" target="_blank">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html" target="_blank">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html" target="_blank">Lobby</a>
+                </li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login" onclick="window.location.href='login.html'">
+                    Entrar
+                </button>
+                <button class="btn-cadastro" onclick="window.location.href='cadastro.html'">
+                    Cadastrar-se
+                </button>
+            </div>
+            <button id="mobile_barras">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav_item">
+                    <a href="../index.html" target="_blank">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html" target="_blank">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html" target="_blank">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html" target="_blank">Lobby</a>
+                </li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login" onclick="window.location.href='login.html'">
+                    Entrar
+                </button>
+                <button class="btn-cadastro" onclick="window.location.href='cadastro.html'">
+                    Cadastrar-se
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="perfil-cliente-page">
+        <!-- Profile Header -->
+        <div class="profile-header-section">
+            <div class="profile-header-content">
+                <div class="profile-photo-container">
+                    <div class="profile-photo">
+                        <i class="fa-solid fa-camera"></i>
+                        <span>Enviar foto</span>
+                    </div>
+                    <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                </div>
+                <div class="profile-info">
+                    <h1 id="profileName">Gabriel Henrique da Silva</h1>
+                    <p class="profile-email" id="profileEmail"><i class="fa-solid fa-envelope"></i> gabriel@email.com</p>
+                    <p class="profile-phone" id="profilePhone"><i class="fa-solid fa-phone"></i> (11) 98765-4321</p>
+                </div>
+                <div class="profile-actions">
+                    <button class="edit-profile-btn" id="editProfileBtn">
+                        <i class="fa-solid fa-pen"></i> Editar Perfil
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <!-- Address Section -->
+            <div class="info-section">
+                <div class="info-header">
+                    <h2><i class="fa-solid fa-location-dot"></i> Endereço</h2>
+                    <button class="edit-info-btn" data-section="address">
+                        <i class="fa-solid fa-pen"></i> Preencher Endereço
+                    </button>
+                </div>
+                <div class="info-content" id="addressContent">
+                    <p class="empty-state">Nenhum endereço cadastrado</p>
+                </div>
+            </div>
+
+            <!-- Personal Data Section -->
+            <div class="info-section">
+                <div class="info-header">
+                    <h2><i class="fa-solid fa-id-card"></i> Dados</h2>
+                    <button class="edit-info-btn" data-section="data">
+                        <i class="fa-solid fa-pen"></i> Preencher Endereço
+                    </button>
+                </div>
+                <div class="info-content" id="dataContent">
+                    <p class="empty-state">Nenhum dado cadastrado</p>
+                </div>
+            </div>
+
+            <!-- Services and Reviews Section -->
+            <div class="services-reviews-container">
+                <!-- Services Requested -->
+                <div class="services-section">
+                    <h2>Serviços solicitados:</h2>
+                    <div class="service-item pending">
+                        <span>Solicitou trabalho com <strong>Ruan</strong></span>
+                        <i class="fa-solid fa-clock pending-icon"></i>
+                    </div>
+                    <div class="service-item completed">
+                        <span>Trabalho realizado com <strong>Erick</strong></span>
+                        <i class="fa-solid fa-circle-check success-icon"></i>
+                    </div>
+                    <div class="service-item completed">
+                        <span>Trabalho realizado com <strong>Laura</strong></span>
+                        <i class="fa-solid fa-circle-check success-icon"></i>
+                    </div>
+                </div>
+
+                <!-- Reviews Section -->
+                <div class="reviews-section">
+                    <h2>Avaliações</h2>
+                    <div class="review-item positive">
+                        <div class="review-header">
+                            <span class="review-rating">Nota 5.0</span>
+                        </div>
+                        <p class="review-text">Ótimo profissional, tranquilo e realizou o serviço solicitado com sucesso</p>
+                        <div class="review-author">
+                            <i class="fa-solid fa-user-circle"></i>
+                        </div>
+                    </div>
+                    <div class="review-item negative">
+                        <div class="review-header">
+                            <span class="review-rating">Nota 1.0</span>
+                        </div>
+                        <p class="review-text">Péssimo profissional, mau educado e não realizou o serviço que foi solicitado</p>
+                        <div class="review-author">
+                            <i class="fa-solid fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Address Modal -->
+    <div id="addressModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Endereço</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>CEP</label>
+                    <input type="text" id="cep" placeholder="00000-000">
+                </div>
+                <div class="input-group">
+                    <label>Rua</label>
+                    <input type="text" id="rua" placeholder="Nome da rua">
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Número</label>
+                        <input type="text" id="numero" placeholder="123">
+                    </div>
+                    <div class="input-group">
+                        <label>Complemento</label>
+                        <input type="text" id="complemento" placeholder="Apto 45">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Bairro</label>
+                    <input type="text" id="bairro" placeholder="Nome do bairro">
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Cidade</label>
+                        <input type="text" id="cidade" placeholder="Cidade">
+                    </div>
+                    <div class="input-group">
+                        <label>Estado</label>
+                        <input type="text" id="estado" placeholder="UF">
+                    </div>
+                </div>
+                <button class="save-btn" id="saveAddressBtn">Salvar Endereço</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Data Modal -->
+    <div id="dataModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Dados Pessoais</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="nomeCompleto" placeholder="Seu nome completo">
+                </div>
+                <div class="input-group">
+                    <label>CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00">
+                </div>
+                <div class="input-group">
+                    <label>Data de Nascimento</label>
+                    <input type="date" id="dataNascimento">
+                </div>
+                <div class="input-group">
+                    <label>Telefone</label>
+                    <input type="text" id="telefone" placeholder="(00) 00000-0000">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="seu@email.com">
+                </div>
+                <button class="save-btn" id="saveDataBtn">Salvar Dados</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 Helpper  |  Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
+    </footer>
+    
+    <script src="../src/javascript/script.js"></script>
+    <script src="../src/javascript/perfil-cliente.js"></script>
+</body>
+</html>

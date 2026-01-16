@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../src/styles/home.css">
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="../src/styles/buttons.css">
+    <link rel="stylesheet" href="../src/styles/header.css">
+    <link rel="stylesheet" href="../src/styles/perfil-profissional.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Perfil Profissional - Helpper</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="../index.html">
+                <img src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+            </a>
+            <ul id="nav_list">
+                <li class="nav_item">
+                    <a href="../index.html" target="_blank">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html" target="_blank">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html" target="_blank">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html" target="_blank">Lobby</a>
+                </li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login" onclick="window.location.href='login.html'">
+                    Entrar
+                </button>
+                <button class="btn-cadastro" onclick="window.location.href='cadastro.html'">
+                    Cadastrar-se
+                </button>
+            </div>
+            <button id="mobile_barras">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav_item">
+                    <a href="../index.html" target="_blank">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html" target="_blank">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html" target="_blank">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html" target="_blank">Lobby</a>
+                </li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login" onclick="window.location.href='login.html'">
+                    Entrar
+                </button>
+                <button class="btn-cadastro" onclick="window.location.href='cadastro.html'">
+                    Cadastrar-se
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="perfil-profissional-page">
+        <!-- Profile Header -->
+        <div class="profile-header-section">
+            <div class="profile-header-content">
+                <div class="profile-photo-container">
+                    <div class="profile-photo">
+                        <i class="fa-solid fa-camera"></i>
+                        <span>Enviar foto</span>
+                    </div>
+                    <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                </div>
+                <div class="profile-info">
+                    <div class="name-verified">
+                        <h1 id="profileName">Ruan Pablo</h1>
+                        <i class="fa-solid fa-circle-check verified-icon"></i>
+                    </div>
+                    <p class="profile-specialty" id="profileSpecialty">Eletricista Profissional</p>
+                    <p class="profile-phone" id="profilePhone"><i class="fa-solid fa-phone"></i> (11) 98765-4321</p>
+                </div>
+                <div class="profile-actions">
+                    <button class="edit-profile-btn" id="editProfileBtn">
+                        <i class="fa-solid fa-pen"></i> Editar Perfil
+                    </button>
+                    <a href="https://wa.me/" class="whatsapp-btn" id="whatsappBtn" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Profile Modal -->
+        <div class="modal-overlay" id="editModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fa-solid fa-user-pen"></i> Editar Perfil</h2>
+                    <button class="modal-close" id="closeModal">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProfileForm">
+                        <div class="form-group">
+                            <label for="editName">
+                                <i class="fa-solid fa-user"></i> Nome Completo
+                            </label>
+                            <input type="text" id="editName" placeholder="Digite seu nome completo" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="editSpecialty">
+                                <i class="fa-solid fa-briefcase"></i> Especialidade
+                            </label>
+                            <input type="text" id="editSpecialty" placeholder="Ex: Eletricista, Encanador, Pintor..." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="editPhone">
+                                <i class="fa-solid fa-phone"></i> Telefone/WhatsApp
+                            </label>
+                            <input type="tel" id="editPhone" placeholder="(00) 00000-0000" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="editAbout">
+                                <i class="fa-solid fa-align-left"></i> Sobre Você
+                            </label>
+                            <textarea id="editAbout" rows="4" placeholder="Conte sobre sua experiência profissional..."></textarea>
+                        </div>
+                        
+                        <div class="modal-actions">
+                            <button type="button" class="btn-cancel" id="cancelEdit">Cancelar</button>
+                            <button type="submit" class="btn-save">
+                                <i class="fa-solid fa-check"></i> Salvar Alterações
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <!-- Services and Reviews Section -->
+            <div class="services-reviews-container">
+                <!-- Services Performed -->
+                <div class="services-section">
+                    <h2>Serviços realizados</h2>
+                    <div class="service-item">
+                        <span>Realizou serviço para <strong>Ruan</strong></span>
+                        <i class="fa-solid fa-circle-check success-icon"></i>
+                    </div>
+                    <div class="service-item">
+                        <span>Realizou serviço para <strong>Erick</strong></span>
+                        <i class="fa-solid fa-circle-check success-icon"></i>
+                    </div>
+                    <div class="service-item">
+                        <span>Realizou serviço para <strong>Laura</strong></span>
+                        <i class="fa-solid fa-circle-check success-icon"></i>
+                    </div>
+                </div>
+
+                <!-- Reviews Section -->
+                <div class="reviews-section">
+                    <h2>Avaliações</h2>
+                    <div class="rating-summary">
+                        <i class="fa-solid fa-star star-icon"></i>
+                        <span class="rating-number">3.5</span>
+                    </div>
+                    <div class="review-item positive">
+                        <div class="review-header">
+                            <span class="review-rating">Nota 5.0</span>
+                        </div>
+                        <p class="review-text">Ótimo profissional, tranquilo e realizou o serviço solicitado com sucesso</p>
+                        <div class="review-author">
+                            <i class="fa-solid fa-user-circle"></i>
+                        </div>
+                    </div>
+                    <div class="review-item negative">
+                        <div class="review-header">
+                            <span class="review-rating">Nota 1.0</span>
+                        </div>
+                        <p class="review-text">Péssimo profissional, mau educado e não realizou o serviço que foi solicitado</p>
+                        <div class="review-author">
+                            <i class="fa-solid fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Me Section -->
+            <div class="about-section">
+                <h2><i class="fa-solid fa-user"></i> Sobre mim</h2>
+                <textarea id="aboutText" class="about-textarea" placeholder="Conte um pouco sobre você e sua experiência profissional..."></textarea>
+                <button class="save-about-btn" id="saveAboutBtn">Salvar</button>
+            </div>
+
+            <!-- My Work Section -->
+            <div class="work-section">
+                <h2>Meus trabalhos</h2>
+                <div class="work-gallery">
+                    <div class="work-item">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div class="work-item">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <div class="work-item">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div class="work-item">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div class="work-item">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                </div>
+                <input type="file" id="workUpload" accept="image/*,video/*" multiple style="display: none;">
+                <button class="add-work-btn" id="addWorkBtn">
+                    <i class="fa-solid fa-plus"></i> Adicionar trabalho
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Helpper  |  Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
+    </footer>
+    
+    <script src="../src/javascript/script.js"></script>
+    <script src="../src/javascript/perfil-profissional.js"></script>
+</body>
+</html>
