@@ -114,11 +114,11 @@
             <!-- Professionals Section -->
             <div id="professionals-section">
                 <div id="section-header">
-                    <h2>
-                        <img src="../src/images perfil/maps.png" alt="Localização">
-                        Profissionais em destaque na sua região
-                    </h2>
-                    <button id="location-filter">Cidade</button>
+                    <h2>Profissionais em destaque na sua região</h2>
+                    <div class="location-filter-container">
+                        <img src="../src/images perfil/maps.png" alt="Localização" class="location-icon">
+                        <button id="location-filter">Cidade</button>
+                    </div>
                 </div>
 
                 <div id="professionals-grid">
@@ -349,6 +349,220 @@
     <footer>
         <p>&copy; 2026 Helpper | Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
     </footer>
+    
+    <!-- Modal de Seleção de Localização -->
+    <div id="location-modal" class="modal-overlay">
+        <div class="modal-container location-modal-container">
+            <button class="modal-close" id="close-location-modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-location-dot"></i> Escolha sua Localização</h2>
+            </div>
+            
+            <div class="location-search">
+                <input type="text" id="location-search-input" placeholder="Buscar cidade ou região...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            
+            <div class="location-list">
+                <div class="location-item" data-location="Várzea da Palma - MG">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Várzea da Palma - MG</span>
+                </div>
+                <div class="location-item" data-location="Belo Horizonte - MG">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Belo Horizonte - MG</span>
+                </div>
+                <div class="location-item" data-location="Contagem - MG">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Contagem - MG</span>
+                </div>
+                <div class="location-item" data-location="Betim - MG">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Betim - MG</span>
+                </div>
+                <div class="location-item" data-location="Montes Claros - MG">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Montes Claros - MG</span>
+                </div>
+                <div class="location-item" data-location="Uberlândia - MG">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Uberlândia - MG</span>
+                </div>
+                <div class="location-item" data-location="Juiz de Fora - MG">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Juiz de Fora - MG</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Contratação -->
+    <div id="hire-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" id="close-modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="modal-header">
+                <h2>Contratar Profissional</h2>
+            </div>
+            
+            <div class="modal-professional-info">
+                <div class="modal-profile-photo">
+                    <img id="modal-prof-photo" src="../src/images perfil/modelo foto perfil.png" alt="Profissional">
+                </div>
+                <div class="modal-profile-details">
+                    <h3 id="modal-prof-name">Nome do Profissional</h3>
+                    <p id="modal-prof-profession">Profissão</p>
+                    <div class="modal-rating">
+                        <div class="stars" id="modal-prof-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <span id="modal-prof-rating">4.9 (127)</span>
+                    </div>
+                    <div class="modal-location">
+                        <img src="../src/images perfil/maps.png" alt="Localização">
+                        <span id="modal-prof-location">Localização</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sobre o Profissional -->
+            <div class="modal-about-section">
+                <h3>Sobre o Profissional</h3>
+                <p id="modal-prof-about">
+                    Profissional experiente com anos de atuação na área. Comprometido com a qualidade e satisfação do cliente.
+                </p>
+            </div>
+            
+            <!-- Trabalhos que realizo -->
+            <div class="modal-works-section">
+                <h3>Trabalhos que realizo</h3>
+                <div class="modal-works-grid" id="modal-prof-works">
+                    <div class="work-item">
+                        <img src="../src/images perfil/pedreiro.png" alt="Trabalho 1">
+                    </div>
+                    <div class="work-item">
+                        <img src="../src/images perfil/Eletricista.png" alt="Trabalho 2">
+                    </div>
+                    <div class="work-item">
+                        <img src="../src/images perfil/Pintor.png" alt="Trabalho 3">
+                    </div>
+                </div>
+            </div>
+            
+            <form id="hire-form" class="modal-form">
+                <div class="form-group">
+                    <label for="service-description">Descrição do Problema *</label>
+                    <textarea 
+                        id="service-description" 
+                        name="service-description" 
+                        rows="4" 
+                        placeholder="Descreva detalhadamente o problema que você está enfrentando..."
+                        required
+                    ></textarea>
+                </div>
+                
+                <!-- Campo de Upload de Foto -->
+                <div class="form-group">
+                    <label for="problem-photo">Foto do Problema</label>
+                    <div class="photo-upload-container">
+                        <input 
+                            type="file" 
+                            id="problem-photo" 
+                            name="problem-photo" 
+                            accept="image/*"
+                            hidden
+                        >
+                        <div class="photo-upload-area" id="photo-upload-area">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <p class="upload-text">Clique ou arraste uma foto aqui</p>
+                            <p class="upload-hint">PNG, JPG ou JPEG (máx. 5MB)</p>
+                        </div>
+                        <div class="photo-preview-container" id="photo-preview-container" style="display: none;">
+                            <img id="photo-preview" src="" alt="Preview da foto">
+                            <button type="button" class="remove-photo-btn" id="remove-photo-btn">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service-date">Data Desejada *</label>
+                        <input 
+                            type="date" 
+                            id="service-date" 
+                            name="service-date" 
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service-time">Horário Preferencial *</label>
+                        <select id="service-time" name="service-time" required>
+                            <option value="">Selecione</option>
+                            <option value="manha">Manhã (08h - 12h)</option>
+                            <option value="tarde">Tarde (12h - 18h)</option>
+                            <option value="noite">Noite (18h - 22h)</option>
+                            <option value="flexivel">Horário Flexível</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-name">Seu Nome *</label>
+                    <input 
+                        type="text" 
+                        id="contact-name" 
+                        name="contact-name" 
+                        placeholder="Digite seu nome completo"
+                        required
+                    >
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-phone">Telefone *</label>
+                        <input 
+                            type="tel" 
+                            id="contact-phone" 
+                            name="contact-phone" 
+                            placeholder="(00) 00000-0000"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">E-mail</label>
+                        <input 
+                            type="email" 
+                            id="contact-email" 
+                            name="contact-email" 
+                            placeholder="seu@email.com"
+                        >
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancel-hire">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-confirm">
+                        Confirmar Contratação
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     
     <script src="../src/javascript/script.js"></script>
 </body>

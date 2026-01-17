@@ -1,312 +1,343 @@
-// Professional Profile Page JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    // Load saved data from localStorage
-    loadProfileData();
-    
-    // Profile Photo Upload
-    const profilePhoto = document.querySelector('.profile-photo');
-    const photoUpload = document.getElementById('photoUpload');
-    
-    if (profilePhoto && photoUpload) {
-        profilePhoto.addEventListener('click', function() {
-            photoUpload.click();
-        });
+$(document).ready(function() {
+    // Array para armazenar os trabalhos (fotos e vídeos)
+    let trabalhos = [];
+
+    // Upload de foto de perfil
+    $('.profile-photo').click(function() {
+        $('#photoUpload').click();
+    });
+
+    $('#photoUpload').change(function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                $('.profile-photo').html(`<img src="${e.target.result}" alt="Foto de perfil" style="width: 100%; height: 100%; object-fit: cover;">`);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Modal de edição de perfil
+    $('#editProfileBtn').click(function() {
+        // Preencher campos com dados atuais
+        $('#editName').val($('#profileName').text());
+        $('#editSpecialty').val($('#profileSpecialty').text());
+        $('#editPhone').val($('#profilePhone').text().replace(/[^\d]/g, ''));
+        $('#editAbout').val($('#aboutText').val());
         
-        photoUpload.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const imageData = event.target.result;
-                    profilePhoto.style.backgroundImage = `url(${imageData})`;
-                    profilePhoto.style.backgroundSize = 'cover';
-                    profilePhoto.style.backgroundPosition = 'center';
-                    profilePhoto.innerHTML = '';
-                    
-                    // Save to localStorage
-                    localStorage.setItem('profilePhoto', imageData);
-                    showNotification('Foto de perfil atualizada com sucesso!', 'success');
-                };
-                reader.readAsDataURL(file);
+        $('#editModal').addClass('active');
+        $('body').css('overflow', 'hidden');
+    });
+
+    $('#closeModal, #cancelEdit').click(function() {
+        $('#editModal').removeClass('active');
+        $('body').css('overflow', 'auto');
+    });
+
+    // Fechar modal ao clicar fora
+    $('#editModal').click(function(e) {
+        if ($(e.target).is('#editModal')) {
+            $('#editModal').removeClass('active');
+            $('body').css('overflow', 'auto');
+        }
+    });
+
+    // Salvar edições do perfil
+    $('#editProfileForm').submit(function(e) {
+        e.preventDefault();
+        
+        const nome = $('#editName').val();
+        const especialidade = $('#editSpecialty').val();
+        const telefone = $('#editPhone').val();
+        const sobre = $('#editAbout').val();
+        
+        // Atualizar interface
+        $('#profileName').text(nome);
+        $('#profileSpecialty').text(especialidade);
+        $('#profilePhone').html(`<i class="fa-solid fa-phone"></i> ${formatarTelefone(telefone)}`);
+        $('#aboutText').val(sobre);
+        
+        // Atualizar link do WhatsApp
+        $('#whatsappBtn').attr('href', `https://wa.me/55${telefone.replace(/\D/g, '')}`);
+        
+        // Fechar modal
+        $('#editModal').removeClass('active');
+        $('body').css('overflow', 'auto');
+        
+        alert('Perfil atualizado com sucesso!');
+        
+        // Aqui você enviaria os dados para o servidor
+        // $.ajax({ ... });
+    });
+
+    // Formatar telefone
+    function formatarTelefone(telefone) {
+        const numeros = telefone.replace(/\D/g, '');
+        if (numeros.length === 11) {
+            return `(${numeros.substring(0, 2)}) ${numeros.substring(2, 7)}-${numeros.substring(7)}`;
+        }
+        return telefone;
+    }
+
+    // Máscara de telefone no modal
+    $('#editPhone').on('input', function() {
+        let value = $(this).val().replace(/\D/g, '');
+        
+        if (value.length <= 11) {
+            if (value.length <= 10) {
+                value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+            } else {
+                value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
             }
-        });
-    }
-    
-    // Edit Profile Modal
-    const editModal = document.getElementById('editModal');
-    const editProfileBtn = document.getElementById('editProfileBtn');
-    const closeModal = document.getElementById('closeModal');
-    const cancelEdit = document.getElementById('cancelEdit');
-    const editProfileForm = document.getElementById('editProfileForm');
-    
-    // Open modal
-    if (editProfileBtn) {
-        editProfileBtn.addEventListener('click', function() {
-            openEditModal();
-        });
-    }
-    
-    // Close modal
-    if (closeModal) {
-        closeModal.addEventListener('click', function() {
-            closeEditModal();
-        });
-    }
-    
-    if (cancelEdit) {
-        cancelEdit.addEventListener('click', function() {
-            closeEditModal();
-        });
-    }
-    
-    // Close modal when clicking outside
-    if (editModal) {
-        editModal.addEventListener('click', function(e) {
-            if (e.target === editModal) {
-                closeEditModal();
-            }
-        });
-    }
-    
-    // Handle form submission
-    if (editProfileForm) {
-        editProfileForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            saveProfileData();
-        });
-    }
-    
-    // Save About Section
-    const saveAboutBtn = document.getElementById('saveAboutBtn');
-    const aboutText = document.getElementById('aboutText');
-    
-    if (saveAboutBtn && aboutText) {
-        saveAboutBtn.addEventListener('click', function() {
-            const text = aboutText.value.trim();
-            if (text === '') {
-                showNotification('Por favor, escreva algo sobre você antes de salvar.', 'error');
+        }
+        
+        $(this).val(value);
+    });
+
+    // Salvar "Sobre mim"
+    $('#saveAboutBtn').click(function() {
+        const sobre = $('#aboutText').val();
+        
+        if (sobre.trim() === '') {
+            alert('Por favor, escreva algo sobre você.');
+            return;
+        }
+        
+        alert('Informações salvas com sucesso!');
+        
+        // Aqui você enviaria os dados para o servidor
+        // $.ajax({ ... });
+    });
+
+    // ========================================
+    // SEÇÃO DE TRABALHOS (FOTOS E VÍDEOS)
+    // ========================================
+
+    // Abrir seletor de arquivos
+    $('#addWorkBtn').click(function() {
+        $('#workUpload').click();
+    });
+
+    // Processar arquivos selecionados
+    $('#workUpload').change(function(e) {
+        const files = e.target.files;
+        
+        if (files.length === 0) return;
+        
+        // Processar cada arquivo
+        Array.from(files).forEach(file => {
+            // Verificar tipo de arquivo
+            const isImage = file.type.startsWith('image/');
+            const isVideo = file.type.startsWith('video/');
+            
+            if (!isImage && !isVideo) {
+                alert(`Arquivo ${file.name} não é uma imagem ou vídeo válido.`);
                 return;
             }
-            localStorage.setItem('aboutText', text);
-            showNotification('Informações salvas com sucesso!', 'success');
-        });
-    }
-    
-    // Add Work Button
-    const addWorkBtn = document.getElementById('addWorkBtn');
-    const workUpload = document.getElementById('workUpload');
-    const workGallery = document.querySelector('.work-gallery');
-    
-    if (addWorkBtn && workUpload) {
-        addWorkBtn.addEventListener('click', function() {
-            workUpload.click();
+            
+            // Verificar tamanho (máximo 50MB para vídeos, 10MB para imagens)
+            const maxSize = isVideo ? 50 * 1024 * 1024 : 10 * 1024 * 1024;
+            if (file.size > maxSize) {
+                alert(`Arquivo ${file.name} é muito grande. Máximo: ${isVideo ? '50MB' : '10MB'}`);
+                return;
+            }
+            
+            // Ler arquivo
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const trabalho = {
+                    type: isImage ? 'image' : 'video',
+                    src: e.target.result,
+                    name: file.name
+                };
+                
+                trabalhos.push(trabalho);
+                adicionarTrabalhoNaGaleria(trabalho);
+            };
+            reader.readAsDataURL(file);
         });
         
-        workUpload.addEventListener('change', function(e) {
-            const files = e.target.files;
-            if (files.length > 0) {
-                Array.from(files).forEach(file => {
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        const workItem = document.createElement('div');
-                        workItem.className = 'work-item';
-                        workItem.style.backgroundImage = `url(${event.target.result})`;
-                        workItem.style.backgroundSize = 'cover';
-                        workItem.style.backgroundPosition = 'center';
-                        workGallery.appendChild(workItem);
-                    };
-                    reader.readAsDataURL(file);
-                });
-                showNotification('Trabalhos adicionados com sucesso!', 'success');
-            }
+        // Limpar input
+        $(this).val('');
+    });
+
+    // Adicionar trabalho na galeria
+    function adicionarTrabalhoNaGaleria(trabalho) {
+        const gallery = $('.work-gallery');
+        
+        // Remover placeholders se existirem
+        if (gallery.find('.work-item i').length > 0) {
+            gallery.empty();
+        }
+        
+        let itemHtml = '';
+        
+        if (trabalho.type === 'image') {
+            itemHtml = `
+                <div class="work-item uploaded" data-index="${trabalhos.length - 1}">
+                    <img src="${trabalho.src}" alt="${trabalho.name}">
+                    <button class="remove-work-btn" title="Remover">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `;
+        } else if (trabalho.type === 'video') {
+            itemHtml = `
+                <div class="work-item uploaded video-item" data-index="${trabalhos.length - 1}">
+                    <video src="${trabalho.src}" controls></video>
+                    <div class="video-overlay">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <button class="remove-work-btn" title="Remover">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `;
+        }
+        
+        gallery.append(itemHtml);
+        
+        // Adicionar evento de remoção
+        gallery.find('.work-item').last().find('.remove-work-btn').click(function(e) {
+            e.stopPropagation();
+            removerTrabalho($(this).closest('.work-item'));
         });
     }
-    
-    // Work Item Click (View Full Size)
-    if (workGallery) {
-        workGallery.addEventListener('click', function(e) {
-            if (e.target.classList.contains('work-item') && e.target.style.backgroundImage) {
-                const imageUrl = e.target.style.backgroundImage.slice(5, -2);
-                window.open(imageUrl, '_blank');
+
+    // Remover trabalho
+    function removerTrabalho(item) {
+        if (confirm('Deseja realmente remover este trabalho?')) {
+            const index = item.data('index');
+            trabalhos.splice(index, 1);
+            item.remove();
+            
+            // Reindexar itens restantes
+            $('.work-item.uploaded').each(function(i) {
+                $(this).attr('data-index', i);
+            });
+            
+            // Se não houver mais trabalhos, adicionar placeholders
+            if (trabalhos.length === 0) {
+                $('.work-gallery').html(`
+                    <div class="work-item">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div class="work-item">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <div class="work-item">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div class="work-item">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div class="work-item">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                `);
+            }
+            
+            alert('Trabalho removido com sucesso!');
+        }
+    }
+
+    // Visualizar trabalho em tela cheia (opcional)
+    $(document).on('click', '.work-item.uploaded img, .work-item.uploaded video', function() {
+        const src = $(this).attr('src');
+        const isVideo = $(this).is('video');
+        
+        // Criar modal de visualização
+        const modalHtml = `
+            <div class="work-viewer-modal" style="
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            ">
+                <button class="close-viewer" style="
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    background: white;
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    z-index: 10001;
+                ">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                ${isVideo ? 
+                    `<video src="${src}" controls autoplay style="max-width: 90%; max-height: 90%; border-radius: 10px;"></video>` :
+                    `<img src="${src}" style="max-width: 90%; max-height: 90%; border-radius: 10px;">`
+                }
+            </div>
+        `;
+        
+        $('body').append(modalHtml);
+        $('body').css('overflow', 'hidden');
+        
+        // Fechar visualizador
+        $('.close-viewer, .work-viewer-modal').click(function(e) {
+            if ($(e.target).is('.work-viewer-modal') || $(e.target).closest('.close-viewer').length) {
+                $('.work-viewer-modal').remove();
+                $('body').css('overflow', 'auto');
             }
         });
-    }
-});
+    });
 
-// Open Edit Modal
-function openEditModal() {
-    const modal = document.getElementById('editModal');
-    const profileName = document.getElementById('profileName').textContent;
-    const profileSpecialty = document.getElementById('profileSpecialty').textContent;
-    const profilePhone = document.getElementById('profilePhone').textContent.replace(/[^\d]/g, '');
-    const aboutText = document.getElementById('aboutText').value;
-    
-    // Populate form with current data
-    document.getElementById('editName').value = profileName;
-    document.getElementById('editSpecialty').value = profileSpecialty;
-    document.getElementById('editPhone').value = profilePhone;
-    document.getElementById('editAbout').value = aboutText;
-    
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-// Close Edit Modal
-function closeEditModal() {
-    const modal = document.getElementById('editModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-}
-
-// Save Profile Data
-function saveProfileData() {
-    const name = document.getElementById('editName').value.trim();
-    const specialty = document.getElementById('editSpecialty').value.trim();
-    const phone = document.getElementById('editPhone').value.trim();
-    const about = document.getElementById('editAbout').value.trim();
-    
-    if (!name || !specialty || !phone) {
-        showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
-        return;
-    }
-    
-    // Update profile display
-    document.getElementById('profileName').textContent = name;
-    document.getElementById('profileSpecialty').textContent = specialty;
-    document.getElementById('profilePhone').innerHTML = `<i class="fa-solid fa-phone"></i> ${formatPhone(phone)}`;
-    document.getElementById('aboutText').value = about;
-    
-    // Update WhatsApp link
-    const whatsappBtn = document.getElementById('whatsappBtn');
-    const cleanPhone = phone.replace(/\D/g, '');
-    whatsappBtn.href = `https://wa.me/55${cleanPhone}`;
-    
-    // Save to localStorage
-    const profileData = {
-        name: name,
-        specialty: specialty,
-        phone: phone,
-        about: about
+    // Função para obter todos os trabalhos (para enviar ao servidor)
+    window.getTrabalhos = function() {
+        return trabalhos;
     };
-    localStorage.setItem('profileData', JSON.stringify(profileData));
-    
-    closeEditModal();
-    showNotification('Perfil atualizado com sucesso!', 'success');
-}
 
-// Load Profile Data from localStorage
-function loadProfileData() {
-    // Load profile data
-    const savedData = localStorage.getItem('profileData');
-    if (savedData) {
-        const data = JSON.parse(savedData);
-        document.getElementById('profileName').textContent = data.name;
-        document.getElementById('profileSpecialty').textContent = data.specialty;
-        document.getElementById('profilePhone').innerHTML = `<i class="fa-solid fa-phone"></i> ${formatPhone(data.phone)}`;
-        document.getElementById('aboutText').value = data.about;
+    // Função para salvar trabalhos no servidor (exemplo)
+    window.salvarTrabalhos = function() {
+        if (trabalhos.length === 0) {
+            alert('Adicione pelo menos um trabalho antes de salvar.');
+            return;
+        }
         
-        // Update WhatsApp link
-        const whatsappBtn = document.getElementById('whatsappBtn');
-        const cleanPhone = data.phone.replace(/\D/g, '');
-        whatsappBtn.href = `https://wa.me/55${cleanPhone}`;
-    }
-    
-    // Load profile photo
-    const savedPhoto = localStorage.getItem('profilePhoto');
-    if (savedPhoto) {
-        const profilePhoto = document.querySelector('.profile-photo');
-        profilePhoto.style.backgroundImage = `url(${savedPhoto})`;
-        profilePhoto.style.backgroundSize = 'cover';
-        profilePhoto.style.backgroundPosition = 'center';
-        profilePhoto.innerHTML = '';
-    }
-    
-    // Load about text
-    const savedAbout = localStorage.getItem('aboutText');
-    if (savedAbout) {
-        document.getElementById('aboutText').value = savedAbout;
-    }
-}
-
-// Format Phone Number
-function formatPhone(phone) {
-    const cleaned = phone.replace(/\D/g, '');
-    if (cleaned.length === 11) {
-        return `(${cleaned.substring(0, 2)}) ${cleaned.substring(2, 7)}-${cleaned.substring(7)}`;
-    } else if (cleaned.length === 10) {
-        return `(${cleaned.substring(0, 2)}) ${cleaned.substring(2, 6)}-${cleaned.substring(6)}`;
-    }
-    return phone;
-}
-
-// Show Notification
-function showNotification(message, type = 'success') {
-    // Remove existing notification if any
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <i class="fa-solid fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-        <span>${message}</span>
-    `;
-    
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background-color: ${type === 'success' ? '#4caf50' : '#f44336'};
-        color: white;
-        padding: 15px 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 600;
-        z-index: 10000;
-        animation: slideInRight 0.3s ease;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Add animation styles
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
+        // Aqui você enviaria os trabalhos para o servidor
+        console.log('Trabalhos a serem salvos:', trabalhos);
+        
+        // Exemplo de envio via AJAX:
+        /*
+        const formData = new FormData();
+        trabalhos.forEach((trabalho, index) => {
+            // Converter base64 para blob
+            fetch(trabalho.src)
+                .then(res => res.blob())
+                .then(blob => {
+                    formData.append(`trabalho_${index}`, blob, trabalho.name);
+                });
+        });
+        
+        $.ajax({
+            url: '/api/profissionais/upload-trabalhos',
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                alert('Trabalhos salvos com sucesso!');
+            },
+            error: function() {
+                alert('Erro ao salvar trabalhos');
+            }
+        });
+        */
+        
+        alert('Trabalhos salvos com sucesso! (simulação)');
+    };
+});

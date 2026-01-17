@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../src/styles/home.css">
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="../src/styles/buttons.css">
+    <link rel="stylesheet" href="../src/styles/header.css">
+    <link rel="stylesheet" href="../src/styles/lobby.css">
+    <link rel="stylesheet" href="../src/styles/user-menu.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Lobby - Helpper</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="../index.html">
+                <img src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+            </a>
+            <ul id="nav_list">
+                <li class="nav_item">
+                    <a href="../index.html" target="_blank">Inicio</a>
+                </li>
+                 <li class="nav_item">
+                    <a href="como-funciona.html" target="_blank">Como funciona</a>
+                </li>
+                 <li class="nav_item">
+                    <a href="quem-somos.html" target="_blank">Quem somos</a>
+                </li>
+                 <li class="nav_item active">
+                    <a href="lobby-logado.html">Lobby</a>
+                </li>
+            </ul>
+            
+            <!-- Menu do Usuário Logado -->
+            <div class="user-menu-container">
+                <div class="user-profile-trigger" id="user-profile-trigger">
+                    <div class="user-avatar">
+                        <img src="../src/images perfil/modelo foto perfil.png" alt="Foto do usuário" id="user-avatar-img">
+                    </div>
+                    <span class="user-name" id="user-name">Meu Perfil</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                
+                <!-- Dropdown Menu -->
+                <div class="user-dropdown-menu" id="user-dropdown-menu">
+                    <a href="#" class="dropdown-item" id="menu-perfil">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Perfil</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="menu-configuracoes">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout" id="menu-sair">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Sair</span>
+                    </a>
+                </div>
+            </div>
+            
+            <button id="mobile_barras">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                    <li class="nav_item">
+                        <a href="../index.html" target="_blank">Inicio</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="como-funciona.html" target="_blank">Como funciona</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="quem-somos.html" target="_blank">Quem somos</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="lobby-logado.html">Lobby</a>
+                    </li>
+            </ul>
+            
+            <!-- Menu Mobile do Usuário -->
+            <div class="mobile-user-menu">
+                <div class="mobile-user-info">
+                    <div class="user-avatar">
+                        <img src="../src/images perfil/modelo foto perfil.png" alt="Foto do usuário">
+                    </div>
+                    <span class="user-name" id="mobile-user-name">Meu Perfil</span>
+                </div>
+                <a href="#" class="mobile-menu-item" id="mobile-menu-perfil">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+                <a href="#" class="mobile-menu-item" id="mobile-menu-configuracoes">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+                <a href="#" class="mobile-menu-item logout" id="mobile-menu-sair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <main id="content">
+        <section id="lobby">
+            <!-- Service Selection Banner -->
+            <div id="service-banner">
+                <h1>Qual serviço você precisa?</h1>
+                <div id="service-icons">
+                    <div class="service-icon-card">
+                        <div class="service-icon-wrapper">
+                            <img src="../src/images perfil/pedreiro.png" alt="Pedreiro">
+                        </div>
+                        <span>Pedreiro</span>
+                    </div>
+                    <div class="service-icon-card">
+                        <div class="service-icon-wrapper">
+                            <img src="../src/images perfil/Eletricista.png" alt="Eletricista">
+                        </div>
+                        <span>Eletricista</span>
+                    </div>
+                    <div class="service-icon-card">
+                        <div class="service-icon-wrapper">
+                            <img src="../src/images perfil/Pintor.png" alt="Pintor">
+                        </div>
+                        <span>Pintor</span>
+                    </div>
+                    <div class="service-icon-card">
+                        <div class="service-icon-wrapper">
+                            <img src="../src/images perfil/empregada.png" alt="Faxineira">
+                        </div>
+                        <span>Faxineira</span>
+                    </div>
+                    <div class="service-icon-card">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-ellipsis" style="font-size: 2rem; color: #0033cc;"></i>
+                        </div>
+                        <span>Outros</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professionals Section -->
+            <div id="professionals-section">
+                <div id="section-header">
+                    <h2>Profissionais em destaque na sua região</h2>
+                    <div class="location-filter-container">
+                        <img src="../src/images perfil/maps.png" alt="Localização" class="location-icon">
+                        <button id="location-filter">Cidade</button>
+                    </div>
+                </div>
+
+                <div id="professionals-grid">
+                    <!-- Professional Cards (mesmos da página lobby.html) -->
+                    <div class="professional-card">
+                        <div class="profile-header">
+                            <div class="profile-photo">
+                                <img src="../src/images perfil/modelo foto perfil.png" alt="Pedro Henrique">
+                            </div>
+                            <div class="profile-info">
+                                <h3>Pedro Henrique</h3>
+                                <p class="profession">Pedreiro</p>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <span class="rating-count">4.9 (127)</span>
+                        </div>
+                        <div class="card-detail">
+                            <img src="../src/images perfil/maps.png" alt="Localização">
+                            <span>Várzea da Palma - MG</span>
+                        </div>
+                        <div class="card-detail">
+                            <img src="../src/images perfil/relogio.png" alt="Disponibilidade">
+                            <span>Disponibilidade: Imediata</span>
+                        </div>
+                        <div class="verified">
+                            <img src="../src/images perfil/verificado.png" alt="Verificado">
+                            <span>Verificado pelo Helpper</span>
+                        </div>
+                        <button class="hire-button">Contratar Serviço</button>
+                    </div>
+
+                    <!-- Adicione mais cards conforme necessário -->
+                </div>
+
+                <div id="view-more-container">
+                    <button id="view-more-button">Ver mais Profissionais</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Helpper | Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
+    </footer>
+    
+    <script src="../src/javascript/script.js"></script>
+    <script src="../src/javascript/user-menu.js"></script>
+</body>
+</html>
