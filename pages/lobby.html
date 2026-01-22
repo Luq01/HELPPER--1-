@@ -16,9 +16,14 @@
 <body>
     <header>
         <nav id="navbar">
-            <a href="../index.html">
-                <img src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
-            </a>
+            <div class="logo-container">
+                <a href="../index.html">
+                    <img src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+                </a>
+                <button class="map-icon-btn" id="header-map-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </button>
+            </div>
             <ul id="nav_list">
                 <li class="nav_item">
                     <a href="../index.html" target="_blank">Inicio</a>
@@ -114,11 +119,7 @@
             <!-- Professionals Section -->
             <div id="professionals-section">
                 <div id="section-header">
-                    <h2>Profissionais em destaque na sua região</h2>
-                    <div class="location-filter-container">
-                        <img src="../src/images perfil/maps.png" alt="Localização" class="location-icon">
-                        <button id="location-filter">Cidade</button>
-                    </div>
+                    <h2>Profissionais disponíveis na sua região</h2>
                 </div>
 
                 <div id="professionals-grid">
@@ -347,7 +348,7 @@
     </main>
     
     <footer>
-        <p>&copy; 2026 Helpper | Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
+        <p>&copy; 2026 Helpper  |  Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
     </footer>
     
     <!-- Modal de Seleção de Localização -->

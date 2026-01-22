@@ -34,6 +34,7 @@
     font-weight: 700;
     line-height: 1.2;
     margin: 0;
+    animation: fadeInUp 0.8s ease;
 }
 
 #cta .description{
@@ -41,6 +42,7 @@
     font-weight: 400;
     line-height: 1.5;
     margin: 0;
+    animation: fadeInUp 1s ease;
 }
 
 #cta .description strong{
@@ -314,5 +316,17 @@ footer p{
 
     footer p{
         font-size: 0.75rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

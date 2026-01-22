@@ -1,5 +1,23 @@
 // Password Toggle Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // User Type Tabs Functionality
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const userTypeInput = document.getElementById('userType');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Update hidden input value
+            const userType = this.getAttribute('data-type');
+            userTypeInput.value = userType;
+        });
+    });
+    
     const toggleButtons = document.querySelectorAll('.toggle-password');
     
     toggleButtons.forEach(button => {
@@ -31,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const senha = document.getElementById('senha').value;
             const confirmarSenha = document.getElementById('confirmar-senha').value;
             const terms = document.getElementById('terms').checked;
+            const userType = document.getElementById('userType').value;
             
             // Validate name
             if (nome === '') {
@@ -65,6 +84,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // If all validations pass
             alert('Cadastro realizado com sucesso!');
+            
+            // Redirect based on user type
+            if (userType === 'cliente') {
+                window.location.href = 'perfil-cliente-edit.html';
+            } else if (userType === 'profissional') {
+                window.location.href = 'perfil-profissional-edit.html';
+            }
+            
             // Here you would typically send the data to your backend
             // cadastroForm.submit();
         });

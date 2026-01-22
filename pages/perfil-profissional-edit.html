@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - Helpper</title>
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="../src/styles/header.css">
+    <link rel="stylesheet" href="../src/styles/buttons.css">
+    <link rel="stylesheet" href="../src/styles/perfil-profissional-edit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="../index.html">
+                <img src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+            </a>
+            <ul id="nav_list">
+                <li class="nav_item">
+                    <a href="../index.html">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html">Lobby</a>
+                </li>
+            </ul>
+            <div class="profile-menu">
+                <button class="profile-btn" id="profile-menu-btn">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span>Meu perfil</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="perfil-profissional-view.html" class="dropdown-item">
+                        Perfil profissional
+                    </a>
+                    <a href="perfil-cliente-view.html" class="dropdown-item">
+                        Perfil Cliente
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Configurações
+                    </a>
+                    <a href="../index.html" class="dropdown-item exit">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Sair
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <!-- Banner Azul -->
+        <div class="profile-banner"></div>
+
+        <!-- Foto de Perfil com Upload -->
+        <div class="profile-photo-container">
+            <div class="profile-photo editable">
+                <img src="../src/images perfil/modelo foto perfil.png" alt="Foto de Perfil" id="profile-image">
+                <div class="photo-overlay">
+                    <i class="fa-solid fa-camera"></i>
+                    <span>Enviar foto</span>
+                </div>
+                <input type="file" id="photo-upload" accept="image/*" hidden>
+            </div>
+        </div>
+
+        <!-- Nome e Verificação -->
+        <div class="profile-header">
+            <div class="profile-name">
+                <i class="fa-solid fa-circle-check verified-icon"></i>
+                <h1>Ruan Pablo</h1>
+            </div>
+            <a href="https://wa.me/" class="whatsapp-btn" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+
+        <!-- Editar Nome -->
+        <section class="profile-section">
+            <div class="section-header">
+                <i class="fa-solid fa-user"></i>
+                <h2>Nome</h2>
+            </div>
+            <div class="section-content">
+                <input 
+                    type="text" 
+                    id="profile-name-input" 
+                    class="edit-input" 
+                    value="Ruan Pablo"
+                    placeholder="Digite seu nome completo"
+                    maxlength="50"
+                >
+            </div>
+        </section>
+
+        <!-- Sobre Mim -->
+        <section class="profile-section">
+            <div class="section-header">
+                <i class="fa-solid fa-user"></i>
+                <h2>Sobre mim</h2>
+            </div>
+            <div class="section-content">
+                <textarea 
+                    class="edit-textarea" 
+                    placeholder="Fale um pouco sobre você ..."
+                    maxlength="500"
+                ></textarea>
+                <div class="warning-message">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Atenção: Não informe suas informações de contato ou links externos.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumo da Experiência Profissional -->
+        <section class="profile-section">
+            <div class="section-header">
+                <i class="fa-solid fa-user"></i>
+                <h2>Resumo sua experiência profissional</h2>
+            </div>
+            <div class="section-content">
+                <textarea 
+                    class="edit-textarea" 
+                    placeholder="Fale um pouco sobre você ..."
+                    maxlength="500"
+                ></textarea>
+                <div class="warning-message">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Atenção: Não informe suas informações de contato ou links externos.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formação -->
+        <section class="profile-section">
+            <div class="section-header">
+                <i class="fa-solid fa-briefcase"></i>
+                <h2>Formação</h2>
+                <button class="btn-add">
+                    <i class="fa-solid fa-pen"></i>
+                    Preencher Currículo
+                </button>
+            </div>
+        </section>
+
+        <!-- Meus Trabalhos -->
+        <section class="profile-section">
+            <div class="section-header">
+                <i class="fa-solid fa-file-lines"></i>
+                <h2>Meus trabalhos</h2>
+                <button class="btn-add">
+                    <i class="fa-solid fa-pen"></i>
+                    Adicionar fotos
+                </button>
+            </div>
+            <div class="works-grid">
+                <div class="work-placeholder upload-placeholder">
+                    <i class="fa-solid fa-camera"></i>
+                    <input type="file" class="work-upload" accept="image/*,video/*" hidden>
+                </div>
+                <div class="work-placeholder upload-placeholder">
+                    <i class="fa-solid fa-video"></i>
+                    <input type="file" class="work-upload" accept="image/*,video/*" hidden>
+                </div>
+                <div class="work-placeholder upload-placeholder">
+                    <i class="fa-solid fa-ellipsis"></i>
+                    <input type="file" class="work-upload" accept="image/*,video/*" hidden>
+                </div>
+            </div>
+        </section>
+
+        <!-- Botões de Ação -->
+        <div class="action-buttons-bottom">
+            <button class="btn-cancel">Cancelar alterações</button>
+            <button class="btn-save">Salvar alterações</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Helpper  |  Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
+    </footer>
+
+    <script src="../src/javascript/perfil-edit.js"></script>
+    <script src="../src/javascript/profile-menu.js"></script>
+</body>
+</html>

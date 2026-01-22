@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Cliente - Helpper</title>
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="../src/styles/header.css">
+    <link rel="stylesheet" href="../src/styles/buttons.css">
+    <link rel="stylesheet" href="../src/styles/perfil-cliente-view.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="../index.html">
+                <img src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+            </a>
+            <ul id="nav_list">
+                <li class="nav_item">
+                    <a href="../index.html">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html">Lobby</a>
+                </li>
+            </ul>
+            <div class="profile-menu">
+                <button class="profile-btn" id="profile-menu-btn">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span>Meu perfil</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="perfil-profissional-view.html" class="dropdown-item">
+                        Perfil profissional
+                    </a>
+                    <a href="perfil-cliente-view.html" class="dropdown-item">
+                        Perfil Cliente
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Configurações
+                    </a>
+                    <a href="login.html" class="dropdown-item exit">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Sair
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <!-- Banner Azul -->
+        <div class="profile-banner">
+            <a href="perfil-cliente-edit.html" class="edit-btn">
+                <i class="fas fa-pen"></i>
+            </a>
+        </div>
+
+        <!-- Foto de Perfil -->
+        <div class="profile-photo-container">
+            <div class="profile-photo">
+                <i class="fas fa-camera"></i>
+                <span>Enviar foto</span>
+            </div>
+        </div>
+
+        <!-- Nome -->
+        <div class="profile-header">
+            <h1>Gabriel Henrique da Silva</h1>
+        </div>
+
+        <!-- Serviços Solicitados e Avaliações -->
+        <div class="bottom-sections">
+            <!-- Serviços Solicitados -->
+            <section class="profile-section services-section">
+                <h2>Serviços solicitados:</h2>
+                
+                <div class="service-item">
+                    <span>Solicitou trabalho com</span>
+                    <strong>Ruan</strong>
+                    <i class="fas fa-shopping-cart service-icon"></i>
+                </div>
+
+                <div class="service-item">
+                    <span>Trabalho realizado com</span>
+                    <strong>Erick</strong>
+                    <i class="fas fa-check-circle service-icon completed"></i>
+                </div>
+
+                <div class="service-item">
+                    <span>Trabalho realizado com</span>
+                    <strong>Laura</strong>
+                    <i class="fas fa-check-circle service-icon completed"></i>
+                </div>
+            </section>
+
+            <!-- Avaliações -->
+            <section class="profile-section reviews-section">
+                <h2>Avaliações</h2>
+                
+                <p class="rating-label positive">Nota 5.0</p>
+                <div class="review-item">
+                    <div class="review-header">
+                        <i class="fas fa-user-circle review-avatar"></i>
+                        <p class="review-text">Ótimo profissional, tranquilo e realizou o serviço solicitado com sucesso</p>
+                    </div>
+                </div>
+
+                <p class="rating-label negative">Nota 1.0</p>
+                <div class="review-item">
+                    <div class="review-header">
+                        <i class="fas fa-user-circle review-avatar"></i>
+                        <p class="review-text">Péssimo profissional, mau educado e não realizou o serviço que foi solicitado</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Helpper  |  Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../src/javascript/profile-menu.js"></script>
+</body>
+</html>

@@ -275,8 +275,14 @@ $(document).ready(function() {
     // Modal de Localização - Funcionalidade
     let currentLocation = 'Cidade';
 
-    // Abrir modal de localização
+    // Abrir modal de localização pelo botão de filtro
     $('#location-filter').click(function() {
+        $('#location-modal').addClass('active');
+        $('body').addClass('modal-open');
+    });
+
+    // Abrir modal de localização pelo ícone do header
+    $('#header-map-icon').click(function() {
         $('#location-modal').addClass('active');
         $('body').addClass('modal-open');
     });

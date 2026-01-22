@@ -80,7 +80,20 @@
                 
                 <h1 class="cadastro-title">Crie sua conta</h1>
                 
+                <!-- Tabs de Seleção de Tipo de Usuário -->
+                <div class="user-type-tabs">
+                    <button type="button" class="tab-btn active" data-type="cliente">
+                        <i class="fa-solid fa-user"></i>
+                        Quero ser Cliente
+                    </button>
+                    <button type="button" class="tab-btn" data-type="profissional">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Quero ser Profissional
+                    </button>
+                </div>
+                
                 <form class="cadastro-form" id="cadastroForm">
+                    <input type="hidden" id="userType" name="userType" value="cliente">
                     <div class="input-group">
                         <i class="fa-regular fa-envelope input-icon"></i>
                         <input type="text" id="nome" name="nome" placeholder="Seu nome" required>

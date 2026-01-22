@@ -1,0 +1,439 @@
+/* Perfil Profissional - Edição */
+
+.profile-container {
+    min-height: calc(100vh - 86.5px);
+    background-color: #f5f5f5;
+    padding-bottom: 40px;
+}
+
+/* Banner Azul */
+.profile-banner {
+    width: 100%;
+    height: 250px;
+    background-color: #0033cc;
+}
+
+/* Foto de Perfil Editável */
+.profile-photo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -120px;
+    padding: 0 20px;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.profile-photo.editable {
+    cursor: pointer;
+    border: 6px dashed #ccc;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+}
+
+.profile-photo.editable:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-overlay i {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.photo-overlay span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Header do Perfil */
+.profile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.profile-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.verified-icon {
+    color: #0066ff;
+    font-size: 1.8rem;
+}
+
+.profile-name h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+}
+
+
+.whatsapp-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+/* Seções do Perfil */
+.profile-section {
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 700px;
+    width: calc(100% - 40px);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.section-header i {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.section-header h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    flex: 1;
+}
+
+.btn-add {
+    background-color: transparent;
+    color: #0066ff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #e6f0ff;
+}
+
+.btn-add i {
+    font-size: 0.9rem;
+}
+
+/* Textarea Editável */
+.section-content {
+    padding: 0;
+}
+
+.edit-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.edit-input:focus {
+    outline: none;
+    border-color: #0066ff;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.edit-input::placeholder {
+    color: #999;
+}
+
+.edit-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+.edit-textarea:focus {
+    outline: none;
+    border-color: #0066ff;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.edit-textarea::placeholder {
+    color: #999;
+}
+
+/* Mensagem de Aviso */
+.warning-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff3cd;
+    border-radius: 8px;
+    color: #856404;
+    font-size: 0.85rem;
+}
+
+.warning-message i {
+    color: #ffc107;
+    font-size: 1rem;
+}
+
+/* Grid de Trabalhos */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.work-placeholder {
+    aspect-ratio: 1;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e0e0e0;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.work-placeholder:hover {
+    border-color: #0066ff;
+    background-color: #e6f0ff;
+}
+
+.work-placeholder i {
+    font-size: 2rem;
+    color: #999;
+}
+
+.upload-placeholder:hover i {
+    color: #0066ff;
+}
+
+/* Botões de Ação Inferiores */
+.action-buttons-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px auto;
+    max-width: 700px;
+    padding: 0 20px;
+}
+
+.btn-cancel,
+.btn-save {
+    flex: 1;
+    max-width: 300px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.btn-save {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Responsive - Tablet */
+@media screen and (max-width: 768px) {
+    .profile-banner {
+        height: 200px;
+    }
+
+    .profile-photo-container {
+        margin-top: -100px;
+    }
+
+    .profile-photo {
+        width: 160px;
+        height: 160px;
+    }
+
+    .profile-name h1 {
+        font-size: 1.6rem;
+    }
+
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #0033cc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Responsive - Mobile */
+@media screen and (max-width: 480px) {
+    .profile-banner {
+        height: 150px;
+    }
+
+    .profile-photo-container {
+        margin-top: -75px;
+    }
+
+    .profile-photo {
+        width: 130px;
+        height: 130px;
+        border: 4px solid #fff;
+    }
+
+    .profile-photo.editable {
+        border: 4px dashed #ccc;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-name h1 {
+        font-size: 1.4rem;
+    }
+
+    .verified-icon {
+        font-size: 1.4rem;
+    }
+
+    .whatsapp-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
+    .profile-section {
+        padding: 20px;
+    }
+
+    .section-header {
+        flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .btn-add {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    .edit-textarea {
+        font-size: 0.9rem;
+        min-height: 80px;
+    }
+
+    .warning-message {
+        font-size: 0.8rem;
+    }
+
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .action-buttons-bottom {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-cancel,
+    .btn-save {
+        max-width: 100%;
+    }
+}

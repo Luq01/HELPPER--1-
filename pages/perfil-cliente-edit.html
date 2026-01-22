@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil Cliente - Helpper</title>
+    <link rel="stylesheet" href="../src/styles/style.css">
+    <link rel="stylesheet" href="../src/styles/header.css">
+    <link rel="stylesheet" href="../src/styles/buttons.css">
+    <link rel="stylesheet" href="../src/styles/perfil-cliente-edit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="../index.html">
+                <img src="../src/images/hellper logo.png" alt="Helpper Logo" id="nav_logo">
+            </a>
+            <ul id="nav_list">
+                <li class="nav_item">
+                    <a href="../index.html">Inicio</a>
+                </li>
+                <li class="nav_item">
+                    <a href="como-funciona.html">Como funciona</a>
+                </li>
+                <li class="nav_item">
+                    <a href="quem-somos.html">Quem somos</a>
+                </li>
+                <li class="nav_item">
+                    <a href="lobby.html">Lobby</a>
+                </li>
+            </ul>
+            <div class="profile-menu">
+                <button class="profile-btn" id="profile-menu-btn">
+                    <div class="profile-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span>Meu perfil</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="perfil-profissional-view.html" class="dropdown-item">
+                        Perfil profissional
+                    </a>
+                    <a href="perfil-cliente-view.html" class="dropdown-item">
+                        Perfil Cliente
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Configurações
+                    </a>
+                    <a href="../index.html" class="dropdown-item exit">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Sair
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <!-- Banner Azul -->
+        <div class="profile-banner"></div>
+
+        <!-- Foto de Perfil -->
+        <div class="profile-photo-container">
+            <div class="profile-photo editable" id="profilePhoto">
+                <img src="../src/images perfil/modelo foto perfil.png" alt="Foto de Perfil" id="profile-image">
+                <div class="photo-overlay">
+                    <i class="fas fa-camera"></i>
+                    <span>Enviar foto</span>
+                </div>
+                <input type="file" id="photoInput" accept="image/*" hidden>
+            </div>
+        </div>
+
+        <!-- Nome -->
+        <div class="profile-header">
+            <h1 id="displayName">Gabriel Henrique da Silva</h1>
+        </div>
+
+        <!-- Formulário -->
+        <!-- Nome -->
+        <section class="profile-section">
+            <div class="section-header">
+                <i class="fas fa-user"></i>
+                <h2>Nome</h2>
+            </div>
+            <div class="section-content">
+                <input type="text" id="nameInput" class="edit-input" value="Gabriel Henrique da Silva" placeholder="Digite seu nome completo">
+            </div>
+        </section>
+
+        <!-- Dados Pessoais -->
+        <section class="profile-section">
+            <div class="section-header">
+                <i class="fas fa-address-card"></i>
+                <h2>Dados Pessoais</h2>
+            </div>
+            <div class="section-content">
+                <div class="form-group">
+                    <label>CPF</label>
+                    <input type="text" id="cpf" class="edit-input" placeholder="000.000.000-00" maxlength="14">
+                </div>
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="text" id="telefone" class="edit-input" placeholder="(00) 00000-0000" maxlength="15">
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="email" class="edit-input" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Data de Nascimento</label>
+                    <input type="date" id="dataNascimento" class="edit-input">
+                </div>
+            </div>
+        </section>
+
+        <!-- Botões de Ação -->
+        <div class="action-buttons-bottom">
+            <button class="btn-cancel" id="cancelBtn">Cancelar alterações</button>
+            <button class="btn-save" id="saveBtn">Salvar alterações</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Helpper  |  Todos direitos reservados, conectando pessoas a serviços de qualidade.</p>
+    </footer>
+
+    <script src="../src/javascript/perfil-cliente-edit.js"></script>
+    <script src="../src/javascript/profile-menu.js"></script>
+</body>
+</html>

@@ -6,6 +6,41 @@
     flex-direction: column;
 }
 
+/* Header Map Icon */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.map-icon-btn {
+    background-color: transparent;
+    border: 2px solid #0066ff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.map-icon-btn i {
+    color: #0066ff;
+    font-size: 1.1rem;
+}
+
+.map-icon-btn:hover {
+    background-color: #0066ff;
+    transform: scale(1.05);
+}
+
+.map-icon-btn:hover i {
+    color: white;
+}
+
 /* Service Selection Banner */
 #service-banner {
     background-color: #0033cc;
@@ -23,6 +58,7 @@
     font-weight: 700;
     text-align: center;
     margin: 0;
+    animation: fadeInUp 0.8s ease;
 }
 
 #service-icons {
@@ -285,6 +321,15 @@
 
 /* Responsive Design - Tablet */
 @media screen and (max-width: 768px) {
+    .map-icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .map-icon-btn i {
+        font-size: 1rem;
+    }
+
     #service-banner {
         padding: 40px 5% 60px 5%;
         gap: 35px;
@@ -355,6 +400,19 @@
 
 /* Small Phones */
 @media screen and (max-width: 480px) {
+    .logo-container {
+        gap: 10px;
+    }
+
+    .map-icon-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .map-icon-btn i {
+        font-size: 0.95rem;
+    }
+
     #service-banner {
         padding: 35px 4% 50px 4%;
         gap: 30px;
@@ -1316,5 +1374,17 @@ body.modal-open {
 
     .location-item span {
         font-size: 0.9rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
